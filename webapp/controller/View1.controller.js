@@ -48,7 +48,7 @@ sap.ui.define([
 			return oResultDate;
 		},
 		onInputSubmit: function () {
-	//		alert("Submit Event Fired!!");
+	//		alert("Submit Event Fired!!"); nn
 		},
 		onSuggestionItemSelected: function (oEvent) {
 	//		alert("you have Selected one Item..!!");
