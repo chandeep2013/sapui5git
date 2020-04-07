@@ -1,0 +1,381 @@
+<mvc:View controllerName="com.tricon.Assignment.controller.View1" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" displayBlock="true" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:File="sap.ui.unified">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}" class="sapUiSizeCompact" floatingFooter="true">
+					<headerContent>
+						<Button icon="sap-icon://action" tooltip="Share"/>
+					</headerContent>
+					<content>
+						<VBox>
+							<IconTabBar id="idIconTabBarMulti" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding">
+								<items>
+									<IconTabFilter icon="sap-icon://hint">
+										<VBox class="sapUiSmallMargin">
+											<f:Form>
+												<f:layout>
+													<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+														emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="2" columnsM="2" singleContainerFullSize="false"/>
+												</f:layout>
+												<f:formContainers>
+													<f:FormContainer>
+														<f:formElements>
+															<f:FormElement label="SpecialDates">
+																<f:fields>
+																	<DatePicker placeholder="Check Special Dates here!" id="SpecialDateId"/>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="autoComplete and enableSuggetionn Highlighting">
+																<f:fields>
+																	<!--	autocomplete="true"-->
+																	<Input placeholder="Enter Value ..." textFormatMode="keyValue" showSuggestion="true" suggestionItems="{TableTest>/TableData}"
+																		selectedKey="{TableTest>/TableData/0/ContactMName}">
+																		<suggestionItems>
+																			<core:ListItem text="{TableTest>ContactFName}" additionalText="{TableTest>ContactMName}" key="{TableTest>ContactMName}"/>
+																		</suggestionItems>
+																	</Input>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="maxSuggestionWidth and suggestionItemSelected Event">
+																<f:fields>
+																	<Input placeholder="Enter Value ..." suggestionItemSelected="onSuggestionItemSelected" maxSuggestionWidth="150%" showSuggestion="true"
+																		suggestionItems="{TableTest>/TableData}" valueLiveUpdate="true">
+																		<suggestionItems>
+																			<core:ListItem text="{TableTest>ContactFName}" key="{TableTest>ContactMName}"/>
+																		</suggestionItems>
+																	</Input>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="Tabular Suggestions,showTableSuggestionValueHelp">
+																<f:fields>
+																	<Input id="idSelectedKey" placeholder="Enter Value ..." showSuggestion="true" suggestionRows="{TableTest>/TableData}"
+																		showTableSuggestionValueHelp="true">
+																		<suggestionColumns>
+																			<Column hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+																				<Label text="FirstName"/>
+																			</Column>
+																			<Column hAlign="Center" popinDisplay="Inline" demandPopin="true" minScreenWidth="Tablet">
+																				<Label text="LastName"/>
+																			</Column>
+																			<Column hAlign="Center" popinDisplay="Inline" demandPopin="false" minScreenWidth="Tablet">
+																				<Label text="MiddleName"/>
+																			</Column>
+																		</suggestionColumns>
+																		<suggestionRows>
+																			<ColumnListItem>
+																				<cells>
+																					<Label text="{TableTest>ContactFName}"/>
+																					<Label text="{TableTest>ContactFName}"/>
+																					<Label text="{TableTest>ContactFName}"/>
+																				</cells>
+																			</ColumnListItem>
+																		</suggestionRows>
+																	</Input>
+																</f:fields>
+															</f:FormElement>
+														</f:formElements>
+													</f:FormContainer>
+													<f:FormContainer >
+														<f:formElements>
+															<f:FormElement label="InputSubmit">
+																<f:fields>
+																	<Input placeholder="Enter Value ..." selectedKey="Key123" submit="onInputSubmit"></Input>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="showValueHelp and startSuggestion">
+																<f:fields>
+																	<Input startSuggestion="2" textFormatMode="KeyValue" showValueHelp="true" placeholder="Enter Value ..." showSuggestion="true"
+																		suggestionItems="{TableTest>/TableData}">
+																		<suggestionItems>
+																			<core:ListItem text="{TableTest>ContactFName}" key="{TableTest>ContactMName}" additionalText="{TableTest>ContactMName}"/>
+																		</suggestionItems>
+																	</Input>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="valueHelpOnly,valueHelpRequest Event">
+																<f:fields>
+																	<Input id="f4HelpId" valueHelpRequest="onValueHelpRequest" textFormatMode="KeyValue" showValueHelp="true" placeholder="Enter Value ..."
+																		showSuggestion="true" suggestionItems="{TableTest>/TableData}">
+																		<suggestionItems>
+																			<core:ListItem text="{TableTest>ContactFName}" key="{TableTest>ContactMName}" additionalText="{TableTest>ContactMName}"/>
+																		</suggestionItems>
+																	</Input>
+																</f:fields>
+															</f:FormElement>
+														</f:formElements>
+													</f:FormContainer>
+													<f:FormContainer title="Input Types">
+														<f:formElements>
+															<f:FormElement label="Email">
+																<f:fields>
+																	<Input type="Email" placeholder="Email only"/>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="Number">
+																<f:fields>
+																	<Input type="Number" placeholder="Number only"/>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="Password">
+																<f:fields>
+																	<Input type="Password" placeholder="Password only"/>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="Tel">
+																<f:fields>
+																	<Input type="Tel" placeholder="Tel no only"/>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="Text">
+																<f:fields>
+																	<Input type="Text" placeholder="Text only"/>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="Url">
+																<f:fields>
+																	<Input type="Url" placeholder="Url only"/>
+																</f:fields>
+															</f:FormElement>
+														</f:formElements>
+													</f:FormContainer>
+													<f:FormContainer title="File Events">
+														<f:formElements>
+															<f:FormElement label="MimeTypes and Placeholder">
+																<f:fields>
+																	<File:FileUploader mimeType="text/plain" placeholder="Choose File..!!"/>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="Change">
+																<f:fields>
+																	<File:FileUploader change="onChange" placeholder="Choose File..!!"/>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="TypeMissmatch">
+																<f:fields>
+																	<File:FileUploader typeMissmatch="ontypeMissmatch" fileType="txt" placeholder="Choose File..!!"/>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="filenameLengthExceed">
+																<f:fields>
+																	<File:FileUploader maximumFilenameLength="10" filenameLengthExceed="onFilenameLengthExceed" placeholder="Choose File..!!"/>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="fileSizeExceed">
+																<f:fields>
+																	<File:FileUploader maximumFileSize="10" fileSizeExceed="onFileSizeExceed" placeholder="Choose File..!!"/>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="fileAllowed">
+																<f:fields>
+																	<File:FileUploader fileAllowed="onFileAllowed" placeholder="Choose File..!!"/>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label=" uploadAborted, uploadComplete, uploadProgress, uploadStart">
+																<f:fields>
+																	<File:FileUploader id="FileCheck" uploadProgress="onUploadProgress" uploadStart="onUploadStart"
+																		uploadComplete="onFileUploaderUploadComplete" uploadOnChange="true" placeholder="Choose File..!!" sendXHR="true"/>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="Indicator">
+																<f:fields>
+																	<ProgressIndicator id="idIndicator" class="sapUiSmallMarginBottom" percentValue="0" displayValue="0%" showValue="true" state="None"/>
+																</f:fields>
+															</f:FormElement>
+														</f:formElements>
+													</f:FormContainer>
+												</f:formContainers>
+											</f:Form>
+										</VBox>
+									</IconTabFilter>
+									<IconTabFilter icon="sap-icon://attachment" count="3">
+										<Table id="idTest_Table" items="{ path: 'TableTest>/TableData'}" alternateRowColors="true" mode="MultiSelect" enableBusyIndicator="true"
+											itemPress="onItemPress">
+											<!--sorter: { path: 'ContactOfficePhone' }-->
+											<headerToolbar>
+												<Toolbar>
+													<content>
+														<Title text="Supplier Contact Info"/>
+														<ToolbarSpacer></ToolbarSpacer>
+														<SearchField id="idTest_Search" placeholder="Search..." width="50%"></SearchField>
+														<Button id="idEditButton" icon="sap-icon://edit" press="onEdit"></Button>
+														<Button id="idSaveButton" icon="sap-icon://save" press="onSave" visible="false"></Button>
+														<Button icon="sap-icon://delete"></Button>
+													</content>
+												</Toolbar>
+											</headerToolbar>
+											<columns>
+												<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+													<ObjectIdentifier title="First Name"/>
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+													<ObjectIdentifier title="Middle Name"/>
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+													<ObjectIdentifier title="Last Name"/>
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+													<ObjectIdentifier title="Designation"/>
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+													<HBox>
+														<ObjectIdentifier title="Office Phone"/>
+														<Button text="As" press="OnAsendingOrder"></Button>
+														<Button text="Ds" press="onDesendingOrder"></Button>
+													</HBox>
+												</Column>
+											</columns>
+											<items>
+												<ColumnListItem type="Active" press="onSelect">
+													<cells>
+														<!--<Input value="{TableTest>ContactFName}" />-->
+														<Input value="{TableTest>ContactFName}" maxSuggestionWidth="30%" placeholder="Enter Value ..." showSuggestion="true"
+															suggestionRows="{TableTest>/TableData}" showTableSuggestionValueHelp="true" editable="true">
+															<suggestionColumns>
+																<Column hAlign="Begin" popinDisplay="Inline" demandPopin="true">
+																	<Label text="FirstName"/>
+																</Column>
+																<Column hAlign="Center" popinDisplay="Inline" demandPopin="true" minScreenWidth="Tablet">
+																	<Label text="LastName"/>
+																</Column>
+																<Column hAlign="Center" popinDisplay="Inline" demandPopin="false" minScreenWidth="Tablet">
+																	<Label text="MiddleName"/>
+																</Column>
+															</suggestionColumns>
+															<suggestionRows>
+																<ColumnListItem>
+																	<cells>
+																		<Label text="{TableTest>ContactFName}"/>
+																		<Label text="{TableTest>ContactMName}"/>
+																		<Label text="{TableTest>ContactLName}"/>
+																	</cells>
+																</ColumnListItem>
+															</suggestionRows>
+														</Input>
+														<Input value="{TableTest>ContactMName}" showSuggestion="true" suggestionItems="{TableTest>/TableData}">
+															<suggestionItems>
+																<core:ListItem text="{TableTest>ContactFName}" additionalText="{TableTest>ContactMName}" key="{TableTest>ContactMName}"/>
+															</suggestionItems>
+														</Input>
+														<Input value="{TableTest>ContactLName}"/>
+														<Input value="{TableTest>ContactDesig}" textDirection="RTL"/>
+														<Input value="{TableTest>ContactOfficePhone}"/>
+													</cells>
+												</ColumnListItem>
+											</items>
+										</Table>
+									</IconTabFilter>
+									<IconTabFilter icon="sap-icon://notes" count="12">
+										<VBox class="sapUiSmallMargin">
+											<f:Form >
+												<f:layout>
+													<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+														emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="2" columnsM="2" singleContainerFullSize="false"/>
+												</f:layout>
+												<f:formContainers>
+													<f:FormContainer title="ComboBox">
+														<f:formElements>
+															<f:FormElement label="FirstValue">
+																<f:fields>
+																	<ComboBox placeholder="Select From List" items="{ path: 'TableTest>/TableData', sorter: { path: 'ContactFName' } }" change="ComboBoxChnage"
+																		selectionChange="ComboBoxSelectionChange">
+																		<core:Item key="{TableTest>ContactMName}" text="{TableTest>ContactFName}"/>
+																	</ComboBox>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="showSecondaryValues">
+																<f:fields>
+																	<ComboBox showSecondaryValues="true" items="{ path: 'TableTest>/TableData', sorter: { path: 'ContactFName' } }">
+																		<core:ListItem key="{TableTest>ContactMName}" text="{TableTest>ContactFName}" additionalText="{TableTest>ContactMName}"/>
+																	</ComboBox>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="selectedKey">
+																<f:fields>
+																	<ComboBox id="comboboxId" selectedKey="{TableTest>/TableData/0/ContactMName}"
+																		items="{ path: 'TableTest>/TableData', sorter: { path: 'ContactFName' } }">
+																		<core:Item key="{TableTest>ContactMName}" text="{TableTest>ContactFName}"/>
+																	</ComboBox>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="filterSecondaryValues">
+																<f:fields>
+																	<ComboBox showSecondaryValues="true" filterSecondaryValues="true" items="{ path: 'TableTest>/TableData', sorter: { path: 'ContactFName' } }">
+																		<core:ListItem key="{TableTest>ContactMName}" text="{TableTest>ContactFName}" additionalText="{TableTest>ContactMName}"/>
+																	</ComboBox>
+																</f:fields>
+															</f:FormElement>
+														</f:formElements>
+													</f:FormContainer>
+													<f:FormContainer title="MultiComboBox">
+														<f:formElements>
+															<f:FormElement label="Single Column">
+																<f:fields>
+																	<MultiComboBox items="{ path: 'TableTest>/TableData', sorter: { path: 'ContactFName' } }" selectionChange="handleSelectionChange"
+																		selectionFinish="handleSelectionFinish">
+																		<core:Item key="{TableTest>ContactMName}" text="{TableTest>ContactFName}"/>
+																	</MultiComboBox>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="showSecondaryValues">
+																<f:fields>
+																	<MultiComboBox showSecondaryValues="true" items="{ path: 'TableTest>/TableData', sorter: { path: 'ContactFName' } }">
+																		<core:ListItem key="{TableTest>ContactMName}" text="{TableTest>ContactFName}" additionalText="{TableTest>ContactMName}"/>
+																	</MultiComboBox>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="Group">
+																<f:fields>
+																	<MultiComboBox selectedKeys="{TableTest>/TableData/0/ContactMName}" showSecondaryValues="true"
+																		items="{ path: 'TableTest>/TableData', sorter: { path: 'ContactFName',group: true } }">
+																		<core:ListItem key="{TableTest>ContactMName}" text="{TableTest>ContactFName}" additionalText="{TableTest>ContactMName}"/>
+																	</MultiComboBox>
+																</f:fields>
+															</f:FormElement>
+														</f:formElements>
+													</f:FormContainer>
+													<f:FormContainer title="Other" visible="false">
+														<f:formElements>
+															<f:FormElement label="Rating">
+																<f:fields>
+																	<RatingIndicator value="{Rating}" displayOnly="true"/>
+																</f:fields>
+															</f:FormElement>
+															<f:FormElement label="Disposable">
+																<f:fields>
+																	<ProgressIndicator percentValue="{Disposable}" displayOnly="true"/>
+																</f:fields>
+															</f:FormElement>
+														</f:formElements>
+													</f:FormContainer>
+												</f:formContainers>
+											</f:Form>
+										</VBox>
+									</IconTabFilter>
+									<IconTabFilter icon="sap-icon://group">
+										<l:VerticalLayout class="sapUiContentPadding" width="100%">
+											<l:content>
+												<core:HTML
+													content='&lt;div class=&quot;content&quot;&gt;&lt;h4&gt;Lorem ipsum&lt;/h4&gt;&lt;div&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.&lt;/div&gt;&lt;a target=&quot;_blank&quot; href=&quot;http://en.wikipedia.org/wiki/Lorem_ipsum&quot;&gt;Learn more about Lorem Ipsum ...&lt;/a&gt;&lt;/div&gt;'></core:HTML>
+											</l:content>
+										</l:VerticalLayout>
+										<Button text="check" press="onPressTest"></Button>
+									</IconTabFilter>
+								</items>
+							</IconTabBar>
+						</VBox>
+					</content>
+					<footer>
+						<Toolbar>
+							<ToolbarSpacer/>
+							<Button text="Accept" type="Accept"/>
+							<Button text="Reject" type="Reject"/>
+							<Button text="Edit"/>
+							<Button text="Delete"/>
+						</Toolbar>
+					</footer>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
