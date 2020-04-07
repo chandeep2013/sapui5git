@@ -34,7 +34,7 @@ sap.ui.define([
 				success: function (response) {
 					var data = response;
 					TestModel.setData(data);
-					console.log("tabledata", data);
+				//	console.log("tabledata", data);
 				},
 				error: function (err) {
 					//	console.log(err);
@@ -48,10 +48,10 @@ sap.ui.define([
 			return oResultDate;
 		},
 		onInputSubmit: function () {
-			alert("Submit Event Fired!!");
+	//		alert("Submit Event Fired!!");
 		},
 		onSuggestionItemSelected: function (oEvent) {
-			alert("you have Selected one Item..!!");
+	//		alert("you have Selected one Item..!!");
 		},
 		onValueHelpRequest: function (oEvent) {
 			//	alert("valueHelpRequest event Fired....!!");
@@ -86,37 +86,37 @@ sap.ui.define([
 			oBinding.sort(oSorters);
 		},
 		onChange: function () {
-			alert("File Change Event Fired..!!");
+	//		alert("File Change Event Fired..!!");
 		},
 		ontypeMissmatch: function () {
-			alert("Please Select txt files..!!");
+	//		alert("Please Select txt files..!!");
 		},
 		onFilenameLengthExceed: function () {
-			alert("File name length is Exceed..!!");
+	//		alert("File name length is Exceed..!!");
 		},
 		onFileSizeExceed: function () {
-			alert("File is too long..!!");
+		//	alert("File is too long..!!");
 		},
 		onFileAllowed: function () {
-			alert("File allowed efvent Fired..!!");
+	//		alert("File allowed efvent Fired..!!");
 		},
 		onFileUploaderComplete: function () {
-			console.log("file uplode completed");
+	//		console.log("file uplode completed");
 				this.getView().byId("idIndicator").setPercentValue(100);  
 			this.getView().byId("idIndicator").setDisplayValue(100);  
 		},
 		onFileUploaderUploadComplete: function () {
-			console.log("file upload complete");
+	//		console.log("file upload complete");
 			this.getView().byId("idIndicator").setPercentValue(100);  
 			this.getView().byId("idIndicator").setDisplayValue(100);  
 		},
 		onUploadProgress: function () {
-			console.log("file upload Progress");
+		//	console.log("file upload Progress");
 				this.getView().byId("idIndicator").setPercentValue(50);  
 			this.getView().byId("idIndicator").setDisplayValue(50);  
 		},
 		onUploadStart: function () {
-			console.log("file upload Start");
+	//		console.log("file upload Start");
 			this.getView().byId("idIndicator").setPercentValue(0);  
 			this.getView().byId("idIndicator").setDisplayValue(0);  
 		},
@@ -137,10 +137,10 @@ sap.ui.define([
 			evt.getSource().getBinding("items").filter([]);
 		},
 		ComboBoxChnage: function () {
-			alert("ComboBoxChnage Event Fired");
+	//		alert("ComboBoxChnage Event Fired");
 		},
 		ComboBoxSelectionChange: function () {
-			alert("ComboBoxSelectionChange");
+	//		alert("ComboBoxSelectionChange");
 		},
 		handleSelectionChange: function(oEvent) {
 			var changedItem = oEvent.getParameter("changedItem");
@@ -151,7 +151,7 @@ sap.ui.define([
 				state = "Deselected";
 			}
 
-			alert("Event 'selectionChange': " + state + " '" + changedItem.getText());
+	//		alert("Event 'selectionChange': " + state + " '" + changedItem.getText());
 		},
 
 		handleSelectionFinish: function(oEvent) {
@@ -167,7 +167,7 @@ sap.ui.define([
 
 			messageText += "]";
 
-			alert(messageText+ +"Selection Finish Event Fired");
+		//	alert(messageText+ +"Selection Finish Event Fired");
 		},
 		onPressTest:function(){
 			/*var timelineItem = new sap.suite.ui.commons.TimelineItem({
